@@ -1,0 +1,12 @@
+---
+title: "home"
+format: html
+editor: visual
+---
+
+## Bad graph 1
+
+```{r}
+#| echo: false
+2 * 2
+```

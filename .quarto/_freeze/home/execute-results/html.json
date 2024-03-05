@@ -1,0 +1,14 @@
+{
+  "hash": "793d7a2be627bbfec38c6ef836afd4ce",
+  "result": {
+    "markdown": "---\ntitle: \"home\"\nformat: html\neditor: visual\n---\n\n\n## Bad graph 1\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n[1] 4\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
