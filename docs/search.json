@@ -4,13 +4,13 @@
     "href": "home.html",
     "title": "home",
     "section": "",
-    "text": "[1] 4"
+    "text": "#import picture\nexplain drawbacks and ways to improve.\n\ndf &lt;- data.frame(\n  Group = c(\"Group A\", \"Group A\", \"Group A\", \"Group A\", \"Group A\", \"Group B\", \"Group B\", \"Group B\", \"Group B\", \"Group B\"),\n  Year = c(\"CY 2010\", \"CY 2011\", \"CY 2012\", \"CY 2013\", \"CY 2014\", \"CY 2015\", \"CY 2016\", \"CY 2017\", \"CY 2018\", \"CY 2019\"),\n  Refills = c(14, 12, 10, 8, 6, 4, 12, 10, 8, 6)\n)\n\n\nlibrary(ggplot2)\n\nggplot(df, aes(x = Year, y = Refills, fill = Group)) +\n  geom_bar(stat = \"identity\", position = \"dodge\") +\n  labs(title = \"Refills by Year and Group\",\n       x = \"Year\",\n       y = \"Refills\",\n       fill = \"Group\")\n\n\n\n\nThe bar graph starts with zero and it is much clearer.\n\ncustom_palette &lt;- c(\"#1f78b4\", \"#33a02c\")\n\n# Create bar graph\nggplot(df, aes(x = Year, y = Refills, fill = Group)) +\n  geom_bar(stat = \"identity\", position = \"dodge\", color = \"black\") +\n  scale_fill_manual(values = custom_palette) +\n  labs(title = \"Refills by Year and Group\",\n       x = \"Year\",\n       y = \"Refills\",\n       fill = \"Group\") +\n  theme_minimal() +\n  theme(legend.position = \"bottom\",\n        axis.text.x = element_text(angle = 45, hjust = 1),\n        plot.title = element_text(hjust = 0.5))"
   },
   {
     "objectID": "home.html#bad-graph-1",
     "href": "home.html#bad-graph-1",
     "title": "home",
     "section": "",
-    "text": "[1] 4"
+    "text": "#import picture\nexplain drawbacks and ways to improve.\n\ndf &lt;- data.frame(\n  Group = c(\"Group A\", \"Group A\", \"Group A\", \"Group A\", \"Group A\", \"Group B\", \"Group B\", \"Group B\", \"Group B\", \"Group B\"),\n  Year = c(\"CY 2010\", \"CY 2011\", \"CY 2012\", \"CY 2013\", \"CY 2014\", \"CY 2015\", \"CY 2016\", \"CY 2017\", \"CY 2018\", \"CY 2019\"),\n  Refills = c(14, 12, 10, 8, 6, 4, 12, 10, 8, 6)\n)\n\n\nlibrary(ggplot2)\n\nggplot(df, aes(x = Year, y = Refills, fill = Group)) +\n  geom_bar(stat = \"identity\", position = \"dodge\") +\n  labs(title = \"Refills by Year and Group\",\n       x = \"Year\",\n       y = \"Refills\",\n       fill = \"Group\")\n\n\n\n\nThe bar graph starts with zero and it is much clearer.\n\ncustom_palette &lt;- c(\"#1f78b4\", \"#33a02c\")\n\n# Create bar graph\nggplot(df, aes(x = Year, y = Refills, fill = Group)) +\n  geom_bar(stat = \"identity\", position = \"dodge\", color = \"black\") +\n  scale_fill_manual(values = custom_palette) +\n  labs(title = \"Refills by Year and Group\",\n       x = \"Year\",\n       y = \"Refills\",\n       fill = \"Group\") +\n  theme_minimal() +\n  theme(legend.position = \"bottom\",\n        axis.text.x = element_text(angle = 45, hjust = 1),\n        plot.title = element_text(hjust = 0.5))"
   }
 ]

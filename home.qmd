@@ -6,7 +6,59 @@ editor: visual
 
 ## Bad graph 1
 
+#import picture
+
+explain drawbacks and ways to improve.
+
 ```{r}
-#| echo: false
-2 * 2
+df <- data.frame(
+  Group = c("Group A", "Group A", "Group A", "Group A", "Group A", "Group B", "Group B", "Group B", "Group B", "Group B"),
+  Year = c("CY 2010", "CY 2011", "CY 2012", "CY 2013", "CY 2014", "CY 2015", "CY 2016", "CY 2017", "CY 2018", "CY 2019"),
+  Refills = c(14, 12, 10, 8, 6, 4, 12, 10, 8, 6)
+)
+
+
+library(ggplot2)
+
+ggplot(df, aes(x = Year, y = Refills, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Refills by Year and Group",
+       x = "Year",
+       y = "Refills",
+       fill = "Group")
+
 ```
+
+The bar graph starts with zero and it is much clearer.
+
+```{r}
+custom_palette <- c("#1f78b4", "#33a02c")
+
+# Create bar graph
+ggplot(df, aes(x = Year, y = Refills, fill = Group)) +
+  geom_bar(stat = "identity", position = "dodge", color = "black") +
+  scale_fill_manual(values = custom_palette) +
+  labs(title = "Refills by Year and Group",
+       x = "Year",
+       y = "Refills",
+       fill = "Group") +
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+# Create line graph
+ggplot(df, aes(x = Year, y = Refills, color = Group, group = Group)) +
+  geom_line() +
+  labs(title = "Refills by Year and Group",
+       x = "Year",
+       y = "Refills",
+       color = "Group") +
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        plot.title = element_text(hjust = 0.5))
+```
+
+We can easily see the trend.
