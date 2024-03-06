@@ -17,16 +17,18 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "8,0",
-        "scrollLine": "0",
-        "rmdVisualModeLocation": "1599:2221"
+        "cursorPosition": "129,0",
+        "scrollLine": "14",
+        "rmdVisualModeLocation": "6655:6076",
+        "last_setup_crc32": "4167233d7abef699",
+        "ignored_words": "covid\n"
     },
     "folds": "",
-    "lastKnownWriteTime": 1709652009,
+    "lastKnownWriteTime": 1709748907,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1709652009647,
+    "last_content_update": 1709748907459,
     "read_only": false,
     "read_only_alternatives": []
 }

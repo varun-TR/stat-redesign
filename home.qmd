@@ -1,14 +1,28 @@
 ---
-title: "home"
+title: "Graph redesigns"
 format: html
 editor: visual
 ---
 
 ## Bad graph 1
 
-#import picture
+![Source: News Article-https://medium.com/\@actuarialtools/misleading-graphs-963efeda61c7](images/refill-varun.jpeg)
 
-explain drawbacks and ways to improve.
+The above graph plots Refill per Customer by Group. Here we can notice that the Group B has more refills. For instance, Group B is 5 times in 2015 than Group A. However, the graph is not properly visualized.
+
+The following points must be considered for good visualization.
+
+1.  The graph uses 3D chart which does not add any value.
+2.  The y-Axis does not start with 0. Due to this it is difficult to know the true values.
+3.  The orientation of graph makes it difficult to see exact values for y-axis.
+
+Improvements:
+
+1.  The graph can be enhanced by converting it to 2-dimensional.
+2.  By changing the y-axis from 0.
+3.  By changing the orientation of graph
+
+The graph can be redesigned as shown below:
 
 ```{r}
 df <- data.frame(
@@ -29,7 +43,11 @@ ggplot(df, aes(x = Year, y = Refills, fill = Group)) +
 
 ```
 
-The bar graph starts with zero and it is much clearer.
+-   The graph uses a bar chart, which is an appropriate choice for comparing categories (years) and their corresponding values (refills).
+-   The data labels (refill counts) are present above each bar, making it easy to see the specific values for each year.
+-   The blue color used for the bars is visually appealing and generally easy to see against the white background.
+
+But the spacing between the x-axis labels appears inconsistent, particularly between 2012 and 2013. This can make it visually misleading to compare
 
 ```{r}
 custom_palette <- c("#1f78b4", "#33a02c")
@@ -48,6 +66,8 @@ ggplot(df, aes(x = Year, y = Refills, fill = Group)) +
         plot.title = element_text(hjust = 0.5))
 ```
 
+By incorporating the required changes, we can create a graph that is more informative and easier to interpret for your audience. But Line charts provide a smoother visual representation of the data compared to the discrete bars in a bar chart. This can be helpful when the data points are closely spaced or when focusing on changes over time.
+
 ```{r}
 # Create line graph
 ggplot(df, aes(x = Year, y = Refills, color = Group, group = Group)) +
@@ -61,4 +81,87 @@ ggplot(df, aes(x = Year, y = Refills, color = Group, group = Group)) +
         plot.title = element_text(hjust = 0.5))
 ```
 
-We can easily see the trend.
+Line charts effectively visualize trends over time or space due to the continuous line connecting data points. This makes it easier to identify patterns and changes in the data. The Line graph shows number of refills over year.
+
+-   It can be see that for Group A the line is red and for Group B it is blue.
+-   The Trend Line for group seems to be decreasing over increase in years and for Group B it initially increased from year 2015 to 2016 but thereon the refills by customers seems to be decreased.
+
+We can conclude that, the refills per customer is decreasing from year to year but there is some event which caused it to spike from 2015 to 2016.
+
+## Bad graph 2
+
+![Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 test. Source: Reddit. Original Source: C5N](images/country.webp)
+
+Now, look at those bars: Argentina tests almost as many people as the USA! At least that's what it seems like until you look at the numbers. Argentina tests 330 people per million, while the USA tests 7000. That is 20 times more, but the USA's bar is only 1.2 times higher.
+
+The graph makes Argentina look decent at testing people, while it's clearly not the case. The TV channel arbitrarily manipulated the bars' sizes with no regard for logic or rules of scaling. This is how the graph would look without manipulations.
+
+```{r}
+
+library(ggplot2)
+
+co2_data <- data.frame(
+  country = c("Brasil", "Argentina", "EEUU", "Italia", "Alemania", "Norurga"),
+  emission = c(256, 330, 7000, 14100, 15700, 22300)
+)
+
+co2_data$country <- factor(co2_data$country, levels = co2_data$country)
+
+gg <- ggplot(co2_data, aes(x = country, y = emission)) +
+  geom_point(size = 3, color = "skyblue") +
+  geom_text(aes(label = emission), vjust = -0.3, hjust = -0.2, color = "black") +  # Add labels
+  labs(title = "CO2 Emission by Country",
+       x = "Country",
+       y = "CO2 Emission") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+gg
+
+```
+
+-   We can modify the graph into scatter plot for clear details. Now we can observe that Germany is not just 20 times more.
+
+-   Although, the graph indicates some variability in the relationship between the two variables. There is positive correlation between the data points.
+
+-   On the x-axis the words of countries are specific to italian language. Which is difficult to understand by non-native speakers. So it is better to convert into english.
+
+Instead of scatter plot, we can convert into map and represent the test numbers so by just looking we can able to interpret the results.
+
+```{r}
+library(leaflet)
+library(rnaturalearth)
+
+
+covid_data <- data.frame(
+  country = c("Brazil", "Argentina", "United States of America", "Italy","Germany","Norway"),
+  tests = c(258, 330, 7000, 14100,15700,22300)
+)
+
+
+world <- ne_countries(returnclass = "sf")
+
+
+world_with_co2 <- merge(world, covid_data, by.x = "name", by.y = "country", all.x = TRUE)
+
+
+leaflet_map <- leaflet(data = world_with_co2) %>%
+  addTiles() %>%
+  setView(lng = 0, lat = 0, zoom = 2) %>%  # Set initial view of the map
+  addPolygons(
+    fillColor = ~colorQuantile("Reds", tests)(tests),
+    fillOpacity = 0.7,
+    weight = 1,
+    popup = ~paste(name, ": ", tests, " CO2 Emission (%)")
+  ) %>%
+  addLegend(
+    position = "bottomright",
+    pal = colorQuantile("Reds", covid_data$tests),
+    values = covid_data$tests,
+    title = "Covid test results"
+  )
+
+
+leaflet_map
+```
+
+With the map we can see the countries with less covid test are represented in light shade and countries with more covid tests are represented in dark shade.
