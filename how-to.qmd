@@ -1,0 +1,6 @@
+---
+title: "how-to"
+editor: visual
+---
+
+{{< video background-video="https://youtu.be/wo9vZccmqwc"  >}}

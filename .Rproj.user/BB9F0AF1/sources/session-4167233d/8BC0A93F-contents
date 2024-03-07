@@ -6,6 +6,73 @@ editor: visual
 
 ## Bad graph 1
 
+[![1024 Athlete Cardiac Arrests, Serious Issues, 666 Dead, After COVID Shot](images/athletics_dead.png)](https://globalcovidsummit.org/vaccine-injured/-1024-athlete-cardiac-arrests-serious-issues-666-dead-after-covid-shot)
+
+The chart in an anti-vaccine article claims there's been a big rise in athletes collapsing and dying since COVID vaccines were introduced in 2021. But this isn't accurate because in 2021, sports events were much less common due to the pandemic.
+
+A better chart would compare the number of collapses and deaths in the first year before covid with the numbers from 2019, the year before the pandemic began. This would give a clearer picture of any real changes in the incidents of collapses and deaths among athletes.
+
+As per graph,
+
+-   Starting the y-axis at a value greater than zero hides smaller variations at the lower end.
+
+-   The graph only covers a specific period, potentially omitting relevant seasonal trends or long-term patterns.
+
+-    While collapses are concerning, the graph emphasizes them heavily compared to deaths.
+
+We can redesign the graph by:
+
+-   A line chart with a linear y-axis starting at zero to accurately represent the changes in collapses and deaths over time.
+
+-   A line chart with separate lines for collapses and deaths, using color to differentiate them as shown below
+
+```{r}
+
+library(plotly)
+suppressPackageStartupMessages(library(ggplot2))
+
+```
+
+```{r}
+
+data <- data.frame(
+  month = factor(c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"),
+                 levels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")),
+  collapses = c(7, 6, 16, 17, 20, 28, 46, 57, 81, 109, 116, 124, 126, 73, 120, 55),
+  deaths = c(4, 4, 8, 10, 7, 19, 33, 34, 43, 64, 77, 90, 86, 51, 83, 36)
+)
+
+# Create a plotly line plot
+plot_ly(data, x = ~month, y = ~collapses, type = 'scatter', mode = 'lines', name = 'Collapses') %>%
+  add_trace(y = ~deaths, name = 'Deaths') %>%
+  layout(title = "Athlete Collapses and Deaths",
+         xaxis = list(title = "Month"),
+         yaxis = list(title = "Count", tickvals = c(0, 10, 20, 30,40,50,60,70,80,90,100,120)))
+```
+
+```{r}
+
+
+data <- data.frame(
+  month = factor(c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", 
+                   "Jan", "Feb", "Mar", "Apr"), 
+                 levels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")),
+  collapses = c(7, 6, 16, 17, 20, 28, 46, 57, 81, 109, 116, 124, 126, 73, 120, 55),
+  deaths = c(4, 4, 8, 10, 7, 19, 33, 34, 43, 64, 77, 90, 86, 51, 83, 36)
+)
+
+# Create a Plotly column bar chart
+plot_ly(data, x = ~month, y = ~collapses, type = 'bar', name = 'Collapses', marker = list(color = 'skyblue', line = list(color = 'darkblue', width = 1))) %>%
+  add_trace(x = ~month, y = ~deaths, name = 'Deaths', marker = list(color = 'coral', line = list(color = 'darkred', width = 1))) %>%
+  layout(title = "Athlete Collapses and Deaths",
+         xaxis = list(title = "Month"),
+         yaxis = list(title = "Count", tickvals = c(0, 10, 20, 30,40,50,60,70,80,90,100,120)), barmode = 'group')
+```
+
+This code creates a separate bar chart for collapses and deaths, positioned side-by-side. This allows for easier visual comparison between the two variables.
+
+## Bad graph 2
+
 ![Source: News Article-https://medium.com/\@actuarialtools/misleading-graphs-963efeda61c7](images/refill-varun.jpeg)
 
 The above graph plots Refill per Customer by Group. Here we can notice that the Group B has more refills. For instance, Group B is 5 times in 2015 than Group A. However, the graph is not properly visualized.
@@ -88,7 +155,7 @@ Line charts effectively visualize trends over time or space due to the continuou
 
 We can conclude that, the refills per customer is decreasing from year to year but there is some event which caused it to spike from 2015 to 2016.
 
-## Bad graph 2
+## Bad graph 3
 
 ![Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 test. Source: Reddit. Original Source: C5N](images/country.webp)
 
@@ -151,7 +218,7 @@ leaflet_map <- leaflet(data = world_with_co2) %>%
     fillColor = ~colorQuantile("Reds", tests)(tests),
     fillOpacity = 0.7,
     weight = 1,
-    popup = ~paste(name, ": ", tests, " CO2 Emission (%)")
+    popup = ~paste(name, ": ", tests, " tests")
   ) %>%
   addLegend(
     position = "bottomright",
