@@ -4,5 +4,32 @@
   },
   "how-to.qmd": {
     "how-to.html": "68169c45"
+  },
+  "badgraph1.qmd": {
+    "badgraph1.html": "d9f54a75"
+  },
+  "redesign-1.qmd": {
+    "redesign-1.html": "b08beb24"
+  },
+  "redesign-2.qmd": {
+    "redesign-2.html": "811bdf25"
+  },
+  "badgraph-1.qmd": {
+    "badgraph-1.html": "6d920f69"
+  },
+  "redesign(2)-1.qmd": {
+    "redesign(2)-1.html": "0911e760"
+  },
+  "badgraph-2.qmd": {
+    "badgraph-2.html": "9026e184"
+  },
+  "redesign(2)-2.qmd": {
+    "redesign(2)-2.html": "ecd4799d"
+  },
+  "references.qmd": {
+    "references.html": "8f4bc623"
+  },
+  "codes.qmd": {
+    "codes.html": "9b6c8f5b"
   }
 }

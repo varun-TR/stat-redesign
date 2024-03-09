@@ -18,7 +18,7 @@ As per graph,
 
 -   The graph only covers a specific period, potentially omitting relevant seasonal trends or long-term patterns.
 
--    While collapses are concerning, the graph emphasizes them heavily compared to deaths.
+-   While collapses are concerning, the graph emphasizes them heavily compared to deaths.
 
 We can redesign the graph by:
 
@@ -26,32 +26,13 @@ We can redesign the graph by:
 
 -   A line chart with separate lines for collapses and deaths, using color to differentiate them as shown below
 
+![](images/1.png){fig-align="center"}
+
+We can clearly see the trend over time in this line chart. We can see that collapses are much more than deaths. The graph also shows reasonable values on y-axis. However, inorder to clearly distinguish the collapses and deaths per month, we can redesign into below graph for clear visuals.
+
 ```{r}
 
 library(plotly)
-suppressPackageStartupMessages(library(ggplot2))
-
-```
-
-```{r}
-
-data <- data.frame(
-  month = factor(c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"),
-                 levels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")),
-  collapses = c(7, 6, 16, 17, 20, 28, 46, 57, 81, 109, 116, 124, 126, 73, 120, 55),
-  deaths = c(4, 4, 8, 10, 7, 19, 33, 34, 43, 64, 77, 90, 86, 51, 83, 36)
-)
-
-# Create a plotly line plot
-plot_ly(data, x = ~month, y = ~collapses, type = 'scatter', mode = 'lines', name = 'Collapses') %>%
-  add_trace(y = ~deaths, name = 'Deaths') %>%
-  layout(title = "Athlete Collapses and Deaths",
-         xaxis = list(title = "Month"),
-         yaxis = list(title = "Count", tickvals = c(0, 10, 20, 30,40,50,60,70,80,90,100,120)))
-```
-
-```{r}
-
 
 data <- data.frame(
   month = factor(c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", 
@@ -177,7 +158,7 @@ co2_data$country <- factor(co2_data$country, levels = co2_data$country)
 gg <- ggplot(co2_data, aes(x = country, y = emission)) +
   geom_point(size = 3, color = "skyblue") +
   geom_text(aes(label = emission), vjust = -0.3, hjust = -0.2, color = "black") +  # Add labels
-  labs(title = "CO2 Emission by Country",
+  labs(title = "Covid tests by Country",
        x = "Country",
        y = "CO2 Emission") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))

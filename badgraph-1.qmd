@@ -1,0 +1,39 @@
+---
+title: "Badgraph-1"
+editor: visual
+format: html
+css: styles.css
+---
+
+```         
+
+                                       MIDPROJECT 
+                           REDESIGNS OF GRAPHICAL REPRESENTATION
+                              By: Saivarun Tanjore Raghavendra
+```
+
+![1024 Athlete Cardiac Arrests, Serious Issues, 666 Dead, After COVID Shot](images/athletics_dead.png){alt="1024 Athlete Cardiac Arrests, Serious Issues, 666 Dead, After COVID Shot"}
+
+Fig:1024 Athlete Cardiac Arrests, Serious Issues, 666 Dead, After COVID Shot \[1\]
+
+The chart in an anti-vaccine article claims there's been a big rise in athletes collapsing and dying since COVID vaccines were introduced in 2021. But this isn't accurate because in 2021, sports events were much less common due to the pandemic.
+
+A better chart would compare the number of collapses and deaths in the first year before covid with the numbers from 2019, the year before the pandemic began. This would give a clearer picture of any real changes in the incidents of collapses and deaths among athletes.
+
+As per graph,
+
+-   Starting the y-axis at a value greater than zero hides smaller variations at the lower end.
+
+-   The graph covers a 3 dimensional view which is difficult to analyse values.
+
+-   While collapses are concerning, the graph emphasizes them heavily compared to deaths.
+
+We can redesign the graph by:
+
+-   A line chart with a linear y-axis starting at zero to accurately represent the changes in collapses and deaths over time.
+
+-   A line chart with separate lines for collapses and deaths, using color to differentiate them as shown below.
+
+-   Converting into 2d model.
+
+-   Formatting x-axis values.

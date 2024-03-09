@@ -3,13 +3,19 @@ project:
   output-dir: docs
 
 website:
-  title: "DataScience-Blog"
+  title: "MidProject"
   navbar:
     left:
-    - home.qmd
-    - how-to.qmd
+    - badgraph-1.qmd
+    - redesign-1.qmd
+    - badgraph-2.qmd
+    - redesign(2)-1.qmd
+    - codes.qmd
+    - references.qmd
 
     
 format:
   html:
     theme: cosomo
+    
+

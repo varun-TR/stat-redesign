@@ -1,0 +1,12 @@
+---
+title: "Badgraph-2"
+editor: visual
+---
+
+![Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 test. Source: Reddit. Original Source: C5N](images/country.webp)
+
+Fig: Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 test. Source: Reddit. Original Source: C5N \[2\]
+
+Now, look at those bars: Argentina tests almost as many people as the USA! At least that's what it seems like until you look at the numbers. Argentina tests 330 people per million, while the USA tests 7000. That is 20 times more, but the USA's bar is only 1.2 times higher.
+
+The graph makes Argentina look decent at testing people, while it's clearly not the case. The TV channel arbitrarily manipulated the bars' sizes with no regard for logic or rules of scaling. This is how the graph would look without manipulations.

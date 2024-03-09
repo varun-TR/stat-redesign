@@ -1,0 +1,74 @@
+---
+title: "Redesigns (2/2)"
+editor: visual
+---
+
+```{r}
+
+library(ggplot2)
+
+co2_data <- data.frame(
+  country = c("Brasil", "Argentina", "EEUU", "Italia", "Alemania", "Norurga"),
+  emission = c(256, 330, 7000, 14100, 15700, 22300)
+)
+
+co2_data$country <- factor(co2_data$country, levels = co2_data$country)
+
+gg <- ggplot(co2_data, aes(x = country, y = emission)) +
+  geom_point(size = 3, color = "skyblue") +
+  geom_text(aes(label = emission), vjust = -0.3, hjust = -0.2, color = "black") +  # Add labels
+  labs(title = "Covid tests by Country",
+       x = "Country",
+       y = "covid tests in millions(m)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+gg
+
+```
+
+-   We can modify the graph into scatter plot for clear details. Now we can observe that Germany is not just 20 times more.
+
+-   Although, the graph indicates some variability in the relationship between the two variables. There is positive correlation between the data points.
+
+-   On the x-axis the words of countries are specific to italian language. Which is difficult to understand by non-native speakers. So it is better to convert into english.
+
+Instead of scatter plot, we can convert into map and represent the test numbers so by just looking we can able to interpret the results.
+
+```{r}
+library(leaflet)
+library(rnaturalearth)
+
+
+covid_data <- data.frame(
+  country = c("Brazil", "Argentina", "United States of America", "Italy","Germany","Norway"),
+  tests = c(258, 330, 7000, 14100,15700,22300)
+)
+
+
+world <- ne_countries(returnclass = "sf")
+
+
+world_with_co2 <- merge(world, covid_data, by.x = "name", by.y = "country", all.x = TRUE)
+
+
+leaflet_map <- leaflet(data = world_with_co2) %>%
+  addTiles() %>%
+  setView(lng = 0, lat = 0, zoom = 2) %>%  # Set initial view of the map
+  addPolygons(
+    fillColor = ~colorQuantile("Reds", tests)(tests),
+    fillOpacity = 0.7,
+    weight = 1,
+    popup = ~paste(name, ": ", tests, " tests")
+  ) %>%
+  addLegend(
+    position = "bottomright",
+    pal = colorQuantile("Reds", covid_data$tests),
+    values = covid_data$tests,
+    title = "Covid test results"
+  )
+
+
+leaflet_map
+```
+
+With the map we can see the countries with less covid test are represented in light shade and countries with more covid tests are represented in dark shade. By visually examining the graph structure, users can identify patterns, clusters, and outliers within the data. Map graphs serve as effective communication tools for presenting and sharing findings with stakeholders, collaborators, and the general public.
