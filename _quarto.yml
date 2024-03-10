@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "MidProject"
+  title: ""
   navbar:
     left:
     - badgraph-1.qmd
