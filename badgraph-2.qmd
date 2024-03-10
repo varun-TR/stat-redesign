@@ -7,6 +7,22 @@ editor: visual
 
 Fig: Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 test. Source: Reddit. Original Source: C5N \[2\]
 
-Now, look at those bars: Argentina tests almost as many people as the USA! At least that's what it seems like until you look at the numbers. Argentina tests 330 people per million, while the USA tests 7000. That is 20 times more, but the USA's bar is only 1.2 times higher.
+The image showcases potential manipulation of the y-axis by the Argentinian TV channel C5N, aimed at obscuring the high number of COVID-19 tests. The source of this information is Reddit, with the original source being C5N itself.
+
+This manipulation tactic involves adjusting the scale of the y-axis in a manner that downplays the magnitude of COVID-19 tests conducted. By compressing or altering the scale, the actual number of tests may appear significantly lower than they truly are, potentially misleading viewers about the extent of testing efforts and the prevalence of COVID-19 in the region.
+
+Such practices undermine transparency and accurate reporting, hindering public awareness and understanding of the pandemic's severity. It raises concerns about the integrity of information presented by media outlets and the need for responsible reporting to ensure public trust and safety.
+
+Now, look at those bars: Argentina tests almost as many people as the EEU! At least that's what it seems like until you look at the numbers. Argentina tests 330 people per million, while the EUU tests 7000. That is 20 times more, but the EEU's bar is only 1.2 times higher.
 
 The graph makes Argentina look decent at testing people, while it's clearly not the case. The TV channel arbitrarily manipulated the bars' sizes with no regard for logic or rules of scaling. This is how the graph would look without manipulations.
+
+## Suggestions for improvements:
+
+-   By modifying the lengths of bar plots, we can actually see the difference between argentina and EEU being 20 times greater .
+
+-   Creating y axis and x axis involves establishing the vertical (y-axis) and horizontal (x-axis) axes on a graph. These axes serve as reference points for interpreting data and provide context for the relationships between variables.
+
+-   Graphs typically operate in two dimensions, with data represented along both the x-axis and y-axis. Converting a graph into a 2D format involves simplifying the visualizations.
+
+-   One optional modification would be changing the language of graph to english, as majority viewers can understand and interpret this language very well.

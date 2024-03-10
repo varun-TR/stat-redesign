@@ -3,6 +3,8 @@ title: "Redesigns (2/2)"
 editor: visual
 ---
 
+##  Improvements from scatterplot chart
+
 ```{r}
 
 library(ggplot2)
@@ -26,13 +28,15 @@ gg
 
 ```
 
--   We can modify the graph into scatter plot for clear details. Now we can observe that Germany is not just 20 times more.
+-   We can enhance clarity by converting the graph into a scatter plot, allowing for detailed observation. Notably, Germany stands out as approximately 20 times more significant.
 
--   Although, the graph indicates some variability in the relationship between the two variables. There is positive correlation between the data points.
+-   Moreover, the graph suggests some variability in the relationship between the variables, indicating a positive correlation among the data points.
 
--   On the x-axis the words of countries are specific to italian language. Which is difficult to understand by non-native speakers. So it is better to convert into english.
+-   By creating clear x and y axes. This addition will provide better context for interpreting the data and facilitate easier comparison between countries.
 
 Instead of scatter plot, we can convert into map and represent the test numbers so by just looking we can able to interpret the results.
+
+##  Improvements from map chart
 
 ```{r}
 library(leaflet)
@@ -72,3 +76,11 @@ leaflet_map
 ```
 
 With the map we can see the countries with less covid test are represented in light shade and countries with more covid tests are represented in dark shade. By visually examining the graph structure, users can identify patterns, clusters, and outliers within the data. Map graphs serve as effective communication tools for presenting and sharing findings with stakeholders, collaborators, and the general public.
+
+By converting into map we can achieve:
+
+-   We can achieve, a clear visual representation of the density of COVID testing across different countries. Lighter shades typically indicate lower testing rates, while darker shades signify higher testing rates. This allows viewers to quickly identify regions where testing is more or less prevalent.
+
+-   By examining the map, users can identify patterns and clusters within the data. For example, they may observe clusters of darker shades in regions with more robust covid-19 tests or higher infection rates. Conversely, lighter shades may indicate areas with limited access to testing resources.
+
+-   We can see patterns and outlines easily and map graphs serve as effective communication tools for presenting findings to stakeholders, collaborators, and the general public.

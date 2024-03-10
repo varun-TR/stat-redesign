@@ -3,6 +3,8 @@ title: "Redesigns (2/2)"
 editor: visual
 ---
 
+##  Improvements from dual axis line chart
+
 ```{r}
 library(plotly)
 data <- data.frame(
@@ -17,10 +19,14 @@ plot_ly(data, x = ~month, y = ~collapses, type = 'scatter', mode = 'lines', name
   add_trace(y = ~deaths, name = 'Deaths') %>%
   layout(title = "Athlete Collapses and Deaths",
          xaxis = list(title = "Month"),
-         yaxis = list(title = "Count", tickvals = c(0, 10, 20, 30,40,50,60,70,80,90,100,120)))
+         yaxis = list(title = "Frequencies", tickvals = c(0, 10, 20, 30,40,50,60,70,80,90,100,120)))
 ```
 
-We can clearly see the trend over time in this line chart. We can see that collapses are much more than deaths. The graph also shows reasonable values on y-axis. However, inorder to clearly distinguish the collapses and deaths per month, we can redesign into below graph for clear visuals.
+The line chart effectively displays the trend over time, showcasing that collapses significantly outnumber deaths. The y-axis values are reasonable, aiding in understanding the scale of occurrences.
+
+To enhance clarity in distinguishing collapses from deaths per month, we can consider redesigning the graph as a dual-axis line chart. This modification would enable viewers to clearly visualize and compare the trends of collapses and deaths simultaneously, providing a clearer understanding of the relationship between the two variables.
+
+##  Improvements from bar chart
 
 ```{r}
 
@@ -44,10 +50,14 @@ plot_ly(data, x = ~month, y = ~collapses, type = 'bar', name = 'Collapses', mark
 
 This code creates a separate bar chart for collapses and deaths, positioned side-by-side. This allows for easier visual comparison between the two variables.
 
-By converting into bar graph:
+By converting into bar graph, we can achieve the following :
 
--   One can easily visualize the data as graph is in 2D shape.
+-   This Bar graphs enable a clear and instant comparison between different variables.
 
--   We can easily know the highest and lowest values in each month comparatively side by side.
+-    This Bar graph provide a two-dimensional portrayal of data, which is often simpler for humans to comprehend compared to raw numerical data. By presenting collapses and deaths on a shared scale, viewers can swiftly grasp the relative variances and trends between the two variables.
 
--   We can interpret that there are more collapses than deaths in each month.
+-    Bar graphs make it easy to spot the highest and lowest values for each variable in each month. This can be achieved by observing the tallest and shortest bars. This insight is crucial for understanding the severity of collapses and deaths over time and identifying any exceptional occurrences.
+
+-    By visually representing collapses and deaths side by side, viewers can readily discern patterns and trends. Noting that there are more collapses than deaths in each month, in this case, highlights a potentially significant issue that may warrant further investigation or intervention.
+
+-    Graphical representations streamline the communication of insights derived from the data. Instead of presenting viewers with raw figures or extensive tables, a bar graph condenses the information into a visually understandable format, making it easier for stakeholders to comprehend and act upon.
