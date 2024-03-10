@@ -3,6 +3,6 @@ title: "References"
 editor: visual
 ---
 
-\[1\] Global COVID Summit. "Vaccine Injured: 1024 Athlete Cardiac Arrests, Serious Issues --- 666 Dead After COVID Shot," Global COVID Summit. \[Online\]. Available: <https://globalcovidsummit.org/vaccine-injured/-1024-athlete-cardiac-arrests-serious-issues-666-dead-after-covid-shot>
+\[1\] **Author**: Global COVID Summit. **Title**: "Vaccine Injured: 1024 Athlete Cardiac Arrests, Serious Issues --- 666 Dead After COVID Shot," **Publisher**: Global COVID Summit. \[Online\]. **Date**: April 2022, **Url** Available: <https://globalcovidsummit.org/vaccine-injured/-1024-athlete-cardiac-arrests-serious-issues-666-dead-after-covid-shot>
 
-\[2\] CSN news channel. "Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 tests," \[Online\]. Available: <https://www.c5n.com/>
+\[2\] **Author**: CSN news channel. **Title**: "Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 tests," \[Online\]. **Publisher**:CSN news channel , **Date**: April 2020, **Url** Available: <https://www.c5n.com/> and [Argentinian channel (reditt)](https://www.reddit.com/r/dataisugly/comments/g07orb/this_graph_in_argentine_tv_showing_the_number_of/?utm_source=amp&utm_medium=&utm_content=post_num_comments.) .

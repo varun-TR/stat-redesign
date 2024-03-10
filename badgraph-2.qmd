@@ -5,7 +5,7 @@ editor: visual
 
 ![Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 test. Source: Reddit. Original Source: C5N](images/country.webp)
 
-Fig: Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 test. Source: Reddit. Original Source: C5N \[2\]
+#### Fig 4: 1 Argentinian TV channel C5N manipulating the y-axis to hide the terrible number of COVID-19 test. Source: Reddit. Original Source: C5N \[2\]
 
 The image showcases potential manipulation of the y-axis by the Argentinian TV channel C5N, aimed at obscuring the high number of COVID-19 tests. The source of this information is Reddit, with the original source being C5N itself.
 

@@ -3,84 +3,40 @@ title: "Redesigns (2/2)"
 editor: visual
 ---
 
-##  Improvements from scatterplot chart
+## Improvements from dual axis line chart
 
-```{r}
+![](images/lines.png){fig-align="center"}
 
-library(ggplot2)
+#### Fig 2: 1 Redesign of 1024 Athlete Cardiac Arrests, Serious Issues, 666 Dead, After COVID Shot into dual axis line chart.
 
-co2_data <- data.frame(
-  country = c("Brasil", "Argentina", "EEUU", "Italia", "Alemania", "Norurga"),
-  emission = c(256, 330, 7000, 14100, 15700, 22300)
-)
+The line chart effectively displays the trend over time, showcasing that collapses significantly outnumber deaths. The y-axis values are reasonable, aiding in understanding the scale of occurrences.
 
-co2_data$country <- factor(co2_data$country, levels = co2_data$country)
+To enhance clarity in distinguishing collapses from deaths per month, we can consider redesigning the graph as a dual-axis line chart. This modification would enable viewers to clearly visualize and compare the trends of collapses and deaths simultaneously, providing a clearer understanding of the relationship between the two variables.
 
-gg <- ggplot(co2_data, aes(x = country, y = emission)) +
-  geom_point(size = 3, color = "skyblue") +
-  geom_text(aes(label = emission), vjust = -0.3, hjust = -0.2, color = "black") +  # Add labels
-  labs(title = "Covid tests by Country",
-       x = "Country",
-       y = "covid tests in millions(m)") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+overall:
 
-gg
+-   The current line chart effectively illustrates the trend over time, indicating a significant disparity between collapses and deaths.
 
-```
+-   The y-axis values are appropriately scaled, facilitating comprehension of the magnitude of occurrences.
 
--   We can enhance clarity by converting the graph into a scatter plot, allowing for detailed observation. Notably, Germany stands out as approximately 20 times more significant.
+-   Redesigning the graph as a dual-axis line chart would enhance clarity by allowing viewers to compare collapses and deaths directly, providing a more comprehensive understanding of their relationship and trends over time.
 
--   Moreover, the graph suggests some variability in the relationship between the variables, indicating a positive correlation among the data points.
+## Improvements from bar chart
 
--   By creating clear x and y axes. This addition will provide better context for interpreting the data and facilitate easier comparison between countries.
+![](images/multibar.png){fig-align="center"}
 
-Instead of scatter plot, we can convert into map and represent the test numbers so by just looking we can able to interpret the results.
+#### Fig 3: 1 Redesign of 1024 Athlete Cardiac Arrests, Serious Issues, 666 Dead, After COVID Shot into bar chart.
 
-##  Improvements from map chart
+This code creates a separate bar chart for collapses and deaths, positioned side-by-side. This allows for easier visual comparison between the two variables.
 
-```{r}
-library(leaflet)
-library(rnaturalearth)
+By converting into bar graph, we can achieve the following :
 
+-   This Bar graphs enable a clear and instant comparison between different variables.
 
-covid_data <- data.frame(
-  country = c("Brazil", "Argentina", "United States of America", "Italy","Germany","Norway"),
-  tests = c(258, 330, 7000, 14100,15700,22300)
-)
+-   This Bar graph provide a two-dimensional portrayal of data, which is often simpler for humans to comprehend compared to raw numerical data. By presenting collapses and deaths on a shared scale, viewers can swiftly grasp the relative variances and trends between the two variables.
 
+-   Bar graphs make it easy to spot the highest and lowest values for each variable in each month. This can be achieved by observing the tallest and shortest bars. This insight is crucial for understanding the severity of collapses and deaths over time and identifying any exceptional occurrences.
 
-world <- ne_countries(returnclass = "sf")
+-   By visually representing collapses and deaths side by side, viewers can readily discern patterns and trends. Noting that there are more collapses than deaths in each month, in this case, highlights a potentially significant issue that may warrant further investigation or intervention.
 
-
-world_with_co2 <- merge(world, covid_data, by.x = "name", by.y = "country", all.x = TRUE)
-
-
-leaflet_map <- leaflet(data = world_with_co2) %>%
-  addTiles() %>%
-  setView(lng = 0, lat = 0, zoom = 2) %>%  # Set initial view of the map
-  addPolygons(
-    fillColor = ~colorQuantile("Reds", tests)(tests),
-    fillOpacity = 0.7,
-    weight = 1,
-    popup = ~paste(name, ": ", tests, " tests")
-  ) %>%
-  addLegend(
-    position = "bottomright",
-    pal = colorQuantile("Reds", covid_data$tests),
-    values = covid_data$tests,
-    title = "Covid test results"
-  )
-
-
-leaflet_map
-```
-
-With the map we can see the countries with less covid test are represented in light shade and countries with more covid tests are represented in dark shade. By visually examining the graph structure, users can identify patterns, clusters, and outliers within the data. Map graphs serve as effective communication tools for presenting and sharing findings with stakeholders, collaborators, and the general public.
-
-By converting into map we can achieve:
-
--   We can achieve, a clear visual representation of the density of COVID testing across different countries. Lighter shades typically indicate lower testing rates, while darker shades signify higher testing rates. This allows viewers to quickly identify regions where testing is more or less prevalent.
-
--   By examining the map, users can identify patterns and clusters within the data. For example, they may observe clusters of darker shades in regions with more robust covid-19 tests or higher infection rates. Conversely, lighter shades may indicate areas with limited access to testing resources.
-
--   We can see patterns and outlines easily and map graphs serve as effective communication tools for presenting findings to stakeholders, collaborators, and the general public.
+-   Graphical representations streamline the communication of insights derived from the data. Instead of presenting viewers with raw figures or extensive tables, a bar graph condenses the information into a visually understandable format, making it easier for stakeholders to comprehend and act upon.

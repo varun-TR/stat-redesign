@@ -3,17 +3,16 @@ project:
   output-dir: docs
 
 website:
-  title: "MidProject"
+  title: ""
   navbar:
     left:
-    - badgraph-1.qmd
-    - redesign-1.qmd
-    - badgraph-2.qmd
-    - redesign(2)-1.qmd
+    - Badgraph-1.qmd
+    - Redesign(2)-1.qmd
+    - Badgraph-2.qmd
+    - fourth.qmd
     - codes.qmd
     - video-Explanation.qmd
     - references.qmd
-
     
 format:
   html:

@@ -9,12 +9,11 @@ css: styles.css
                                         MIDPROJECT 
                            REDESIGNS OF GRAPHICAL REPRESENTATION
                               By: Saivarun Tanjore Raghavendra
-                                        
 ```
 
 ![1024 Athlete Cardiac Arrests, Serious Issues, 666 Dead, After COVID Shot](images/athletics_dead.png)
 
-#### Fig:1024 Athlete Cardiac Arrests, Serious Issues, 666 Dead, After COVID Shot \[1\]
+#### Fig 1:1024 Athlete Cardiac Arrests, Serious Issues, 666 Dead, After COVID Shot \[1\]
 
 The chart is from an anti-vaccine article claiming a significant increase in athletes collapsing and dying since COVID vaccines were introduced in 2021. However, this claim is misleading because in 2021, sports events were significantly less frequent due to the pandemic.
 
@@ -31,10 +30,5 @@ A more accurate comparison would be to contrast the number of collapses and deat
 ## Suggestions for improvements:
 
 -   Starting the y-axis at a value greater than zero can obscure smaller changes at the lower end of the scale, potentially misleading viewers about the magnitude of variations.
-
-```{=html}
-<!-- -->
-```
 -   A three-dimensional graph can make it challenging to analyze and interpret data accurately, as it introduces unnecessary complexity and can distract from the main insights.
-
 -   Additionally, the current graph places disproportionate emphasis on collapses compared to deaths, which may distort perceptions of the severity of each occurrence.
