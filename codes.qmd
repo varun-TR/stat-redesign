@@ -3,8 +3,6 @@ title: "Codes"
 editor: visual
 ---
 
-{{< video background-video="https://youtu.be/wo9vZccmqwc" >}}
-
 ```{r}
 library(plotly)
 data <- data.frame(
@@ -16,7 +14,7 @@ data <- data.frame(
 
 # Create a plotly line plot
 plot_ly(data, x = ~month, y = ~collapses, type = 'scatter', mode = 'lines', name = 'Collapses') %>%
-  add_trace(y = ~deaths, name = 'Deaths') %>%
+  add_trace(y = ~deaths, name = 'Deaths') %>% #here we add additional layer to dataset.
   layout(title = "Athlete Collapses and Deaths",
          xaxis = list(title = "Month"),
          yaxis = list(title = "Count", tickvals = c(0, 10, 20, 30,40,50,60,70,80,90,100,120)))
@@ -46,14 +44,14 @@ library(ggplot2)
 
 co2_data <- data.frame(
   country = c("Brasil", "Argentina", "EEUU", "Italia", "Alemania", "Norurga"),
-  emission = c(256, 330, 7000, 14100, 15700, 22300)
+  tests = c(256, 330, 7000, 14100, 15700, 22300)
 )
 
 co2_data$country <- factor(co2_data$country, levels = co2_data$country)
 
-gg <- ggplot(co2_data, aes(x = country, y = emission)) +
+gg <- ggplot(co2_data, aes(x = country, y = tests)) +
   geom_point(size = 3, color = "skyblue") +
-  geom_text(aes(label = emission), vjust = -0.3, hjust = -0.2, color = "black") +  # Add labels
+  geom_text(aes(label = tests), vjust = -0.3, hjust = -0.2, color = "black") +  # Add labels
   labs(title = "Covid tests by Country",
        x = "Country",
        y = "covid tests in millions(m)") +
@@ -64,7 +62,7 @@ gg
 
 ```{r}
 library(leaflet)
-library(rnaturalearth)
+library(rnaturalearth) #world map
 
 
 covid_data <- data.frame(
@@ -73,11 +71,11 @@ covid_data <- data.frame(
 )
 
 
-world <- ne_countries(returnclass = "sf")
+world <- ne_countries(returnclass = "sf") #worldmap dataset
 
 
 world_with_co2 <- merge(world, covid_data, by.x = "name", by.y = "country", all.x = TRUE)
-
+#here we merged both worldmap data to our data on countries
 
 leaflet_map <- leaflet(data = world_with_co2) %>%
   addTiles() %>%
